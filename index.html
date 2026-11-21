@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KICKLIVE - Live Sports</title>
+  <meta name="description" content="Watch live sports on KICKLIVE.">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">
+      <span class="logo-icon">▶</span>
+      KICK<span>LIVE</span>
+    </div>
+
+    <div class="live-status">
+      <span class="pulse"></span>
+      LIVE SPORTS
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="hero-content">
+        <span class="hero-tag">LIVE SPORTS STREAMING</span>
+
+        <h1>Watch Sports<br>
+          <span>Live.</span>
+        </h1>
+
+        <p>Stream live matches wherever you are.</p>
+
+        <a href="#live-matches" class="watch-button">
+          <span>▶</span> WATCH LIVE
+        </a>
+      </div>
+    </section>
+
+    <section class="matches-section" id="live-matches">
+
+      <div class="section-heading">
+        <div>
+          <h2>Live Now</h2>
+          <p>Currently broadcasting</p>
+        </div>
+
+        <span class="live-count" id="live-count">
+          0 LIVE
+        </span>
+      </div>
+
+      <div id="matches-container" class="matches-grid">
+        <div class="loading">
+          <div class="loader"></div>
+          <p>Loading live matches...</p>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <div class="player-modal" id="player-modal">
+
+    <div class="player-container">
+
+      <div class="player-header">
+        <div>
+          <span class="live-label">● LIVE</span>
+          <h3 id="player-title">Live Match</h3>
+        </div>
+
+        <button id="close-player" class="close-button">✕</button>
+      </div>
+
+      <div class="video-wrapper">
+        <video
+          id="video-player"
+          controls
+          autoplay
+          playsinline
+        ></video>
+
+        <div id="player-message" class="player-message">
+          Loading stream...
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="logo">
+      KICK<span>LIVE</span>
+    </div>
+
+    <p>Live sports streaming</p>
+
+    <p class="copyright">
+      © 2026 KICKLIVE
+    </p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
