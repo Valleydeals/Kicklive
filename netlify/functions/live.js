@@ -1,18 +1,16 @@
 exports.handler = async function () {
-
   const API_KEY = process.env.RUNFLIX_API_KEY;
 
   if (!API_KEY) {
     return {
       statusCode: 500,
       body: JSON.stringify({
-        error: "API key is not configured"
+        error: "API key is not configured in Netlify"
       })
     };
   }
 
   try {
-
     const response = await fetch(
       "https://apimovie.runflix.name.ng/v1/football/live",
       {
@@ -24,26 +22,25 @@ exports.handler = async function () {
       }
     );
 
-    const data = await response.json();
+    const responseText = await response.text();
 
     return {
       statusCode: response.status,
       headers: {
-        "Content-Type": "application/json",
-        "Cache-Control": "public, max-age=30"
+        "Content-Type": "application/json"
       },
-      body: JSON.stringify(data)
-    };
-
-  } catch (error) {
-
-    return {
-      statusCode: 500,
       body: JSON.stringify({
-        error: "Unable to connect to live sports API"
+        api_status: response.status,
+        api_response: responseText
       })
     };
 
+  } catch (error) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        error: error.message
+      })
+    };
   }
-
 };
