@@ -12,7 +12,7 @@ exports.handler = async function () {
 
   try {
     const response = await fetch(
-      "https://apimovie.runflix.name.ng/v1/football/live",
+      "http://apimovie.runflix.name.ng/v1/football/live",
       {
         method: "GET",
         headers: {
@@ -27,7 +27,8 @@ exports.handler = async function () {
     return {
       statusCode: response.status,
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Cache-Control": "public, max-age=30"
       },
       body: JSON.stringify({
         api_status: response.status,
